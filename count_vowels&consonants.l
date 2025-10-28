@@ -17,8 +17,7 @@ int main()
     printf("Enter the words of your wish: ");
     yylex();
     printf("vowels: %d \n", vowCount);
-    int org = consCount - vowCount;
-    printf("consonents: %d \n", org);
+    printf("consonents: %d \n", consCount);
 
     return 0;
 }
