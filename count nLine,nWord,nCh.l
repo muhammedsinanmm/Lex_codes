@@ -4,9 +4,10 @@
 %}
 
 %%
-    [a-zA-Z0-9]+   {nWord++, nChar += yyleng ;}
-    /n    {nLine++ ;}
+    [a-zA-Z0-9]+   {nWord++ ; nChar += yyleng ;}
+    \n    {nLine++ ; nChar++ ;}
     .     {nChar++ ;}
+    \t    {nChar++ ;}
 %%
 
 int yywrap()
@@ -16,8 +17,8 @@ int yywrap()
 
 int main()
 {
-    yyin = fopen(demo.txt,r);
+    yyin = fopen("demo.txt","r");
     yylex();
-    printf("words: %d \n Lines: %d \n Charecter: %d " , nWord,nLine,nChar);
+    printf("words: %d \n Lines: %d \n Character: %d \n " , nWord,nLine,nChar);
     return 0;
 }
